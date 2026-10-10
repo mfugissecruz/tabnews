@@ -50,6 +50,15 @@ export default defineConfig([
     plugins: { css },
     language: "css/css",
     extends: ["css/recommended"],
+    languageOptions: {
+      customSyntax: {
+        atrules: {
+          tailwind: {
+            prelude: "<ident-token>",
+          },
+        },
+      },
+    },
   },
   prettier,
 ]);
