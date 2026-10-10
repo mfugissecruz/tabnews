@@ -1,14 +1,12 @@
-import { env } from "env";
 import { resolve } from "node:path";
 import database from "infra/database";
 import migrationRunner from "node-pg-migrate";
 
 const defaultMigrationOptions = {
-  databaseUrl: env.DATABASE_URL,
   dryRun: true,
   dir: resolve("infra", "database", "migrations"),
   direction: "up",
-  verbose: true,
+  log: () => {},
   migrationsTable: "pgmigrations",
 };
 
