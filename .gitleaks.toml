@@ -9,6 +9,9 @@ regexes = [
   '''pk_(live|test)_[A-Za-z0-9]+''', # Stripe publishable key - documentado pela Stripe como seguro para expor no client
 ]
 paths = [
-  '''\.next/prerender-manifest\.json''', # chaves de preview mode geradas pelo Next.js a cada build, nao sao segredos de usuario
+  '''\.next(/dev)?/prerender-manifest\.json''', # chaves de preview mode geradas pelo Next.js a cada build
+  '''\.next(/dev)?/cache/\.previewinfo''', # Next.js 16+: preview mode keys no cache do build
+  '''\.next(/dev)?/cache/\.rscinfo''', # encryption key de RSC gerada pelo Next.js
+  '''\.next(/dev)?/server/server-reference-manifest\.json''', # encryptionKey de server actions gerada pelo Next.js
   '''\.next/.*\.nft\.json''', # node file trace - so hash de cache
 ]
